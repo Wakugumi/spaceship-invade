@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
+#include <curses.h>
 #include <unistd.h>
 
 // User-defined header
@@ -64,9 +65,7 @@ void newgame() {
 void loadgame() {
 	
 	// Definitions
-
-
-	
+	int input;
 	FILE * fp;
 	fp = fopen("./database/player.dat", "r");
 	
@@ -92,9 +91,12 @@ void loadgame() {
 	for(int i = 0; i < count; i++) {
 		printf("%d. %s\n", i + 1, list[i]);
 	}
+	puts("");
+	printf(">>> ");
+	scanf("%d", input);
 	
-	
-	
+	printf("Loading game data [%s]", list[input]);
+
 }
 
 void menu() {
@@ -114,28 +116,28 @@ void menu() {
 				puts("EXIT");
 				break;
 			
-			case 2:
+			case 2 :
 				puts("NEW GAME");
 				puts("LOAD GAME        <");
 				puts("SETTING");
 				puts("HOW TO PLAY");
 				puts("EXIT");
 				break;
-			case 3:
+			case 3 :
 				puts("NEW GAME");
 				puts("LOAD GAME");
 				puts("SETTING          <");
 				puts("HOW TO PLAY");
 				puts("EXIT");
 				break;
-			case 4:
+			case 4 :
 				puts("NEW GAME");
 				puts("LOAD GAME");
 				puts("SETTING");
 				puts("HOW TO PLAY      <");
 				puts("EXIT");
 				break;
-			case 5:
+			case 5 :
 				puts("NEW GAME");
 				puts("LOAD GAME");
 				puts("SETTING");
