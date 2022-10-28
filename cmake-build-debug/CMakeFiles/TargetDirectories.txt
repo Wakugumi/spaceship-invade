@@ -1,0 +1,3 @@
+C:/Users/anand/Documents/Project/spaceship-invade/cmake-build-debug/CMakeFiles/spaceship_invade.dir
+C:/Users/anand/Documents/Project/spaceship-invade/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/anand/Documents/Project/spaceship-invade/cmake-build-debug/CMakeFiles/rebuild_cache.dir
