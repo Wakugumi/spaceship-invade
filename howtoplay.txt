@@ -1,0 +1,13 @@
+Space Invader
+
+The object of the game is, basically, to shoot the invaders with your shooter
+while avoding their shots and preventing an invasion  Ammasing a high schore is a further
+objectivve and one that must be prioritised against your continued survival.
+
+There is no time limit,
+except for the fact that if you do not shoot them all before they reach
+the bottom of the screen the game ends.
+
+
+Credit : TinTin Winata
+

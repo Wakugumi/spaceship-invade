@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
-#include <curses.h>
 #include <unistd.h>
 
 // User-defined header
@@ -17,6 +16,10 @@
 
 using namespace std;
 
+
+struct Player {
+	
+};
 
 
 void newgame() {
@@ -93,11 +96,58 @@ void loadgame() {
 	}
 	puts("");
 	printf(">>> ");
-	scanf("%d", input);
+	scanf("%d", &input);
 	
-	printf("Loading game data [%s]", list[input]);
+	printf("Loading game data [%s]", list[input-1]);
 
 }
+
+
+int setting() {
+	puts("Welcome to the game!\n");
+	puts("Basic Movement");
+	puts("'w' - Move Up");
+	puts("'a' - Move Left");
+	puts("'s' - Move Down'");
+	puts("'d' - Move Right");
+	puts("");
+	puts("Lobby Arena");
+	puts("'SPACE' - Interact");
+	puts("'y' - Talk");
+	puts("'o' - Open Backpack");
+	puts("");
+	puts("Game Arena");
+	puts("'SPACE' - Shoot");
+	puts("'r' - Reload");
+	puts("'f' - Skill");
+	puts("'1' - Use Potion");
+	puts("'2' - Use Max Potion");
+	puts("'3' - Use Energy");
+	puts("'4' - Use Max Energy");
+	puts("'g' - Use Bomb");
+	
+	puts("");
+	printf("Back to menu? [press enter]");
+	while(!kbhit());
+	
+	// GOTO menu()
+	return 1; // For callback purpose
+}
+
+int howtoplay() {
+	FILE * fp;
+	fp = fopen("./howtoplay.txt", "r");
+	char text[1000];
+	do {
+		fscanf(fp, "%s\n", text);
+		printf("%s\n", text);
+	} while(!feof(fp));
+	fclose(fp);
+	printf("Back to menu ? [press enter]");
+	while(!kbhit());
+	return 1;
+}
+
 
 void menu() {
 
@@ -173,13 +223,13 @@ void menu() {
 
                     switch(eventBuffer[i].Event.KeyEvent.wVirtualKeyCode){
                         case VK_UP:
-                        	if(pointer == 1) { pointer = 5; break; }
+                        	if(pointer == 0) { pointer = 5; break; }
                         	else {
                         		pointer--; break;
 							}
                         	
                         case VK_DOWN:  
-                            if( pointer == 5 ) { pointer = 1; break; }
+                            if( pointer == 6 ) { pointer = 1; break; }
                             else {
                             	pointer++; break;
 							}
@@ -206,8 +256,19 @@ void menu() {
  		case 1:
  			newgame();
  			break;
-		default:
-			puts("Out of index");
+ 		case 2:
+ 			loadgame();
+ 			break;
+ 		case 3:
+ 			if(setting()){
+ 				menu();
+			 }
+			 break;
+		case 4:
+			if(howtoplay()) {
+				menu();
+			}
+			break;
 	}
  }
 	
@@ -221,7 +282,7 @@ int main() {
 //
 //	printf("%d", checkString(string, sub));
 
-    loadgame();
+	menu();
 
 	return 0;
 
