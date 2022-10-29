@@ -3,9 +3,10 @@
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
-#include <conio.h>
-#include <windows.h>
+//#include <conio.h>
+//#include <windows.h>
 #include <unistd.h>
+#include <curses.h>
 
 // User-defined header
 #include "T143_utility.h"
@@ -287,3 +288,7 @@ int main() {
 	return 0;
 
 }
+
+
+
+#TODO
